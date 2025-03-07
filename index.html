@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharada English High School</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            padding-top: 70px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #2c3e50;
+            padding: 25px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            color: #f4a261;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar h1 img {
+            width: 40px;
+            height: auto;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background: #f4a261;
+            border-radius: 5px;
+        }
+
+        /* Mobile Menu */
+        .menu-btn {
+            font-size: 28px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 0;
+            background: #2c3e50;
+            width: 200px;
+            border-radius: 5px;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .mobile-nav a {
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: block;
+            border-bottom: 1px solid #444;
+            transition: 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            background: #34495e;
+        }
+
+        .mobile-nav.show {
+            display: flex;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: url('top_school.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .hero-overlay button {
+            background: #f18e3d;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            font-size: 1rem;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .hero-overlay button:hover {
+            background: #e76f51;
+        }
+
+        /* About */
+        #about {
+            padding: 50px 20px;
+            text-align: center;
+        }
+#about p{
+    margin: 20px;
+}
+        #about img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 50px 20px;
+        }
+        #stats h2{
+            text-align: center;
+        }
+        .stat {
+            background: #264653;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 200px;
+            text-align: center;
+        }
+
+
+/*ACADEMICS!!!*/
+
+
+        #academics {
+    padding: 50px 0; /* Removed horizontal padding */
+    text-align: center;
+    width: 100%; /* Ensure it covers the entire width */
+    margin: 0; /* Removed margin */
+}
+
+#academics h2 {
+    margin-bottom: 20px; /* Added margin for spacing */
+}
+
+#academics p {
+    margin: 0 0 30px 0; /* Added margin to the paragraph */
+    font-size: 1.1rem;
+}
+
+.academic-programs {
+
+
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly with space between */
+    padding: 30px 10px;
+   
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    gap: 20px; /* Space between cards */
+    width: 100%; /* Full width */
+}
+
+/* Animation for fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.program {
+    background-color: #34495e;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 450px; /* Set a fixed width for each program */
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: slideUp 0.8s ease-in-out forwards;
+    margin: 0; /* Removed margin */
+}
+
+/* For Science Program */
+.program.science {
+    background: url('science-icon.png') no-repeat center center/cover;
+}
+.bgg{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* For Mathematics Program */
+.program.maths {
+    background: url('maths-icon.png') no-repeat center center/cover;
+}
+
+/* For Coding Program */
+.program.coding {
+    background: url('coding-icon.png') no-repeat center center/cover;
+}
+
+/* For Arts Program */
+.program.arts-program {
+    background: url('arts-icon.png') no-repeat center center/cover;
+}
+
+.program-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 10px 0; /* Added margin for spacing */
+    text-align: center; /* Centered text */
+    z-index: 1; /* To keep the title above the background image */
+}
+
+.program-description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center; /* Centered text */
+    margin: 10px 0; /* Added margin for spacing */
+    z-index: 1; /* To keep the description above the background image */
+}
+
+/* Animation for program cards sliding up */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hover effect for program cards */
+.program:hover {
+    transform: scale(1.05);
+    background-color: #e76f51;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Program icon styles */
+.program-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #f4a261;
+}
+
+/* Arts Program - Different background color */
+.academic-programs .arts-program {
+    background-color: #8e44ad;
+}
+
+/* Smaller screen responsiveness */
+@media (max-width: 768px) {
+    .academic-programs {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        justify-content: center; /* Center the programs when they wrap */
+    }
+    .program {
+        width: 350px; /* Adjust width for smaller screens */
+    }
+}
+
+        /* Gallery */
+        #gallery {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            flex: 1;
+            max-width: 18%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* Fixed height for uniformity */
+            object-fit: cover; /* Ensures the image covers the area without stretching */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+ /* Gallery Caption */
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 0 0 10px 10px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the caption when hovering over the gallery item */
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+}
+
+        /* Mobile view */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                flex-direction: column; /* Stack the items vertically */
+                align-items: center; /* Center align the items */
+            }
+
+            .gallery-item {
+                max-width: 90%; /* Allow items to take up more space on smaller screens */
+                margin-bottom: 20px; /* Add space between items */
+            }
+
+            .navbar ul {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .program {
+                min-height: 200px;  /* Allow for a smaller card on mobile */
+                padding: 15px;  /* Reduce padding on mobile */
+            }
+
+            .academic-programs {
+                grid-template-columns: 1fr;  /* Stack program cards vertically */
+            }
+        }
+
+        /* Contact */
+        #contact {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+       
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>
+                <img src="logo.png" alt="Sharada English High School Logo">
+                Sharada English High School
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#academics">Academics</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-overlay">
+            <h2>Excellence in Education</h2>
+            <p>Empowering young minds for a brighter future</p>
+            <button onclick="location.href='#about'">Learn More</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Sharada English High School, located in Marcela, Goa, has been a beacon of education for many years. We pride ourselves on providing quality education, fostering creativity, and encouraging holistic development of students.</p>
+        <img src="about-school.jpg" alt="About School">
+    </section>
+
+    <hr>
+    <section id="academics">
+        <h2>Academics</h2>
+        <p>We offer a range of academic programs designed to empower students in various fields of study.</p>
+        <div class="academic-programs">
+            <div class="program science">
+                <div class="bgg">
+                <div class="program-icon">&#x1F4D6;</div>  <!-- Book icon -->
+                
+                <h3 class="program-title">Science</h3>
+                <p class="program-description">Exploring the wonders of physics, chemistry, and biology with hands-on experiments.</p>
+            </div>
+            </div>
+            <div class="program maths">
+                
+                <div class="bgg">
+                <div class="program-icon">&#x1F4C8;</div>  <!-- Graph icon -->
+                
+                <h3 class="program-title">Mathematics</h3>
+                <p class="program-description">Mastering numbers, algebra, and problem-solving with logical thinking.</p>
+            </div>
+            </div>
+            <div class="program coding">
+                <div class="bgg">
+                <div class="program-icon">&#x1F4BB;</div>  <!-- Laptop icon -->
+                
+                <h3 class="program-title">Coding</h3>
+                <p class="program-description">Diving into programming, web development, and AI for the future of tech.</p>
+            </div>
+            </div>
+            <!-- New Arts Program -->
+            <div class="program arts-program">
+                <div class="bgg">
+                <div class="program-icon">&#x1F3A8;</div>  <!-- Palette icon for Arts -->
+                
+                <h3 class="program-title">Arts</h3>
+                <p class="program-description">Exploring creativity through painting, sculpture, and other forms of artistic expression.</p>
+            </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <section id="stats">
+        <h2>Our Stats</h2>
+        <div class="stats">
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Students Enrolled</p>
+            </div>
+            <div class="stat">
+                <h3>100+</h3>
+                <p>Teachers</p>
+            </div>
+            <div class="stat">
+                <h3>25+</h3>
+                <p>Academic Programs</p>
+            </div>
+        </div>
+    </section>
+<hr>
+    <section id="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="ncc_scout_guide.jpg" alt="NCC/Scout-Guide/JRC">
+                <div class="gallery-caption">NCC / Scout-Guide / JRC Activities</div>
+            </div>
+            <div class="gallery-item">
+                <img src="sports.jpg" alt="Sports">
+                <div class="gallery-caption">Various Sports Events</div>
+            </div>
+            <div class="gallery-item">
+                <img src="science_fair.jpg" alt="Science Fair">
+                <div class="gallery-caption">Annual Science Fair</div>
+            </div>
+            <div class="gallery-item">
+                <img src="events_teachers_students.jpg" alt="Events for Teachers and Students">
+                <div class="gallery-caption">Events for Teachers and Students</div>
+            </div>
+            <div class="gallery-item">
+                <img src="music.jpg" alt="Music & Performing Arts">
+                <div class="gallery-caption">Music & Performing Arts Program</div>
+            </div>
+        </div>
+    </section>
+    
+    <hr>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@sharadaenglishhigh.com</p>
+        <p>Phone: +91 123 456 789</p>
+        <p>Visit Us: Marcela, Goa</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Sharada English High School. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobileNav").classList.toggle("show");
+        }
+    </script>
+</body>
+</html>
